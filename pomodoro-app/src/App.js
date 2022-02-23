@@ -1,4 +1,3 @@
-import CountDownAnimation from "./components/CountDownAnimation";
 import SetPomodoro from "./components/SetPomodoro";
 
 
