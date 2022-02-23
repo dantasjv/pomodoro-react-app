@@ -21,8 +21,12 @@ function SettingsContextProvider(props) {
     setStartAnimate(false);
   }
 
+  const updateExecute = (updatedSettings) => {
+    setExecuting(updatedSettings);
+  }
+
   return (
-    <SettingContext.Provider value={{stopTimer}}>
+    <SettingContext.Provider value={{stopTimer, updateExecute}}>
         {props.children}
     </SettingContext.Provider>
 
