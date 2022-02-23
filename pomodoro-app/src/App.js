@@ -1,10 +1,11 @@
 import { useContext } from "react";
+import Button from "./components/Button";
 import SetPomodoro from "./components/SetPomodoro";
 import { SettingContext } from "./context/settingsContext";
 
 
 function App() {
-  const {pomodoro} = useContext(SettingContext);
+  const {pomodoro, executing, setCurrentTimer} = useContext(SettingContext);
   return (
     <div className="container">
      <h1>Pomodoro</h1>
@@ -12,7 +13,29 @@ function App() {
       {pomodoro === 0 ? 
         <SetPomodoro /> : 
         <>
-        <h3>Testing if set is 0</h3>
+        <ul className="labels">
+          <li>
+            <Button
+              title='Work'
+              activeClass={executing.active === 'work' ? 'active-label' : undefined}
+              _callback={() => setCurrentTimer('work')}
+            />
+          </li>
+          <li>
+            <Button
+              title='Short Break'
+              activeClass={executing.active === 'short' ? 'active-label' : undefined}
+              _callback={() => setCurrentTimer('short')}
+            />
+          </li>
+          <li>
+            <Button
+              title='Long Break'
+              activeClass={executing.active === 'long' ? 'active-label' : undefined}
+              _callback={() => setCurrentTimer('long')}
+            />
+          </li>
+        </ul>
         </>
       }
      
