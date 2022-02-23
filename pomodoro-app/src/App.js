@@ -5,12 +5,17 @@ import { SettingContext } from "./context/settingsContext";
 
 
 function App() {
-  const {pomodoro, executing, setCurrentTimer} = useContext(SettingContext);
+  const {
+    pomodoro,
+    executing,
+    setCurrentTimer,
+    SettingBtn,
+  } = useContext(SettingContext);
   return (
     <div className="container">
      <h1>Pomodoro</h1>
      <small>Be productive the right way.</small>
-      {pomodoro === 0 ? 
+      {pomodoro !== 0 ? 
         <SetPomodoro /> : 
         <>
         <ul className="labels">
@@ -36,6 +41,10 @@ function App() {
             />
           </li>
         </ul>
+        <Button 
+          title='Settings'
+          _callback={SettingBtn}
+        />
         </>
       }
      
