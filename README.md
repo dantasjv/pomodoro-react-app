@@ -1,1 +1,1 @@
-# pomodoro-react-app
+# Pomodoro Clock using React.
